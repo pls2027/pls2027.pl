@@ -3,363 +3,381 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Polska Loteria Sejmowa 2027</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
 
+/* BASE */
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:#f4f4f4;
-color:#333;
-line-height:1.7;
+color:#222;
+line-height:1.6;
+scroll-behavior:smooth;
 }
 
-header{
-
-background:linear-gradient(135deg,#ffffff,#f0f0f0);
-padding:40px;
+/* HERO */
+.hero{
+height:100vh;
+background:url('img/sejm-bg.jpg') center/cover no-repeat;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
-border-bottom:5px solid #c00000;
-
+color:white;
 }
 
-header img{
-
-width:260px;
-max-width:90%;
-
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.6);
 }
 
-header h1{
-
-font-size:48px;
-margin-top:20px;
-color:#b30000;
-
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+padding:20px;
+animation:fadeUp 1.2s ease;
 }
 
-header h2{
+.hero h1{
+font-size:52px;
+letter-spacing:2px;
+margin-bottom:10px;
+}
 
+.hero p{
 font-size:22px;
-font-weight:normal;
-margin-top:10px;
-
+opacity:0.9;
+margin-bottom:25px;
 }
 
-nav{
+.btn{
+display:inline-block;
+padding:15px 28px;
+margin:10px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
 
+.btn-primary{
+background:#c00000;
+color:white;
+}
+
+.btn-primary:hover{
+background:#8f0000;
+}
+
+.btn-outline{
+border:2px solid white;
+color:white;
+}
+
+.btn-outline:hover{
+background:white;
+color:black;
+}
+
+/* NAV */
+nav{
 background:#c00000;
 padding:15px;
 text-align:center;
-
+position:sticky;
+top:0;
+z-index:10;
 }
 
 nav a{
-
 color:white;
+margin:0 12px;
 text-decoration:none;
-margin:15px;
 font-weight:bold;
-
 }
 
-nav a:hover{
+nav a:hover{text-decoration:underline}
 
-text-decoration:underline;
-
-}
-
-main{
-
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-
-}
-
+/* SECTIONS */
 section{
-
+max-width:1100px;
+margin:60px auto;
 background:white;
-padding:30px;
-margin-bottom:35px;
-border-radius:10px;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-
+padding:40px;
+border-radius:12px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+opacity:0;
+transform:translateY(30px);
+transition:0.8s;
 }
 
-section h2{
+section.show{
+opacity:1;
+transform:translateY(0);
+}
 
+h2{
 color:#b30000;
 margin-bottom:20px;
 border-left:6px solid #c00000;
 padding-left:15px;
-
 }
 
-ul{
-
-margin:20px;
-
+/* CARDS */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+margin-top:20px;
 }
 
-.button{
+.card{
+background:#fafafa;
+padding:20px;
+border-radius:10px;
+transition:.3s;
+border:1px solid #eee;
+}
 
-display:inline-block;
-background:#c00000;
-color:white;
-padding:15px 30px;
-border-radius:8px;
-text-decoration:none;
-margin:10px;
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* COUNTER */
+.counter{
+display:flex;
+justify-content:space-around;
+text-align:center;
+font-size:26px;
 font-weight:bold;
-
+color:#c00000;
 }
 
-.button:hover{
-
-background:#8f0000;
-
+/* TIMELINE */
+.timeline{
+border-left:4px solid #c00000;
+padding-left:20px;
 }
 
+.timeline div{
+margin-bottom:20px;
+position:relative;
+}
+
+.timeline div::before{
+content:"";
+width:12px;
+height:12px;
+background:#c00000;
+position:absolute;
+left:-30px;
+top:5px;
+border-radius:50%;
+}
+
+/* FAQ */
+.faq-item{
+border-bottom:1px solid #ddd;
+padding:15px 0;
+cursor:pointer;
+}
+
+.faq-answer{
+display:none;
+margin-top:10px;
+color:#555;
+}
+
+/* FOOTER */
 footer{
-
 background:#222;
 color:white;
-padding:40px;
 text-align:center;
-
+padding:40px;
+margin-top:60px;
 }
 
-.contact{
+/* ANIM */
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(30px)}
+to{opacity:1;transform:translateY(0)}
+}
 
-font-size:18px;
-
+canvas{
+max-width:100%;
+margin-top:20px;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<header>
-
-<img src="logo.png">
-
+<!-- HERO -->
+<div class="hero">
+<div class="hero-content">
 <h1>POLSKA LOTERIA SEJMOWA</h1>
+<p>Przywróćmy władzę Narodowi</p>
 
-<h2>Inicjatywa obywatelska na rzecz przywrócenia władzy NARODOWI.</h2>
+<a href="#dolacz" class="btn btn-primary">DOŁĄCZ</a>
+<a href="#onas" class="btn btn-outline">POZNAJ ZAŁOŻENIA</a>
+</div>
+</div>
 
-</header>
-
+<!-- NAV -->
 <nav>
-
 <a href="#onas">O nas</a>
-<a href="#dlaczego">Dlaczego?</a>
-<a href="#czego">Czego chcemy?</a>
-<a href="#jak">Jak chcemy to osiągnąć?</a>
-<a href="#osiagniemy">Co osiągniemy?</a>
+<a href="#dlaczego">Dlaczego</a>
+<a href="#osiem">Cel</a>
+<a href="#timeline">Oś czasu</a>
+<a href="#faq">FAQ</a>
 <a href="#kontakt">Kontakt</a>
-
 </nav>
 
 <main>
 
-<section id="onas">
+<!-- COUNTER -->
+<section class="reveal">
+<h2>Skala inicjatywy</h2>
+<div class="counter">
+<div><span id="c1">0</span><br>Uczestników</div>
+<div><span id="c2">0</span><br>Podpisów</div>
+<div><span id="c3">0</span><br>Okręgów</div>
+</div>
+</section>
 
+<!-- ABOUT -->
+<section id="onas" class="reveal">
 <h2>O nas</h2>
+<p>Oddolna inicjatywa obywatelska dążąca do zmiany sposobu wybierania przedstawicieli.</p>
 
-<p>
+<div class="grid">
+<div class="card">📊 Transparentność</div>
+<div class="card">🧭 Odpowiedzialność</div>
+<div class="card">🗳️ Realny wybór</div>
+</div>
+</section>
 
-Polska Loteria Sejmowa jest inicjatywą skupiającą osoby, grupy i organizacje, 
-które naprawdę chcą prawdziwej demokracji obywatelskiej w Polsce.
-Naszym celem jest wprowadzenie zmiany ordynacji wyborczej, która przywróci władzę suwerenowi.
-Wierzymy, że każdy obywatel może mieć realny wpływ na funkcjonowanie państwa.
-Nasza inicjatywa ma charakter otwarty.
-Zapraszamy osoby o różnych poglądach.
-Razem chcemy tworzyć przyszłość opartą na aktywnym udziale obywateli bez partyjnych układów.
+<!-- WHY -->
+<section id="dlaczego" class="reveal">
+<h2>Dlaczego?</h2>
+<p>Rosnące poczucie braku wpływu obywateli na decyzje państwowe.</p>
+</section>
 
-</p>
+<!-- CHART -->
+<section class="reveal">
+<h2>Zmiana zaangażowania</h2>
+<canvas id="chart" height="120"></canvas>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline" class="reveal">
+<h2>Oś czasu</h2>
+
+<div class="timeline">
+<div><b>Faza 1</b> – budowa ruchu</div>
+<div><b>Faza 2</b> – zbieranie poparcia</div>
+<div><b>Faza 3</b> – losowanie kandydatów</div>
+<div><b>Faza 4</b> – zmiana ordynacji</div>
+</div>
 
 </section>
 
-<section id="dlaczego">
+<!-- FAQ -->
+<section id="faq" class="reveal">
+<h2>FAQ</h2>
 
-<h2>Dlaczego chcemy zmian?</h2>
+<div class="faq-item">
+<b>Co to jest loteria sejmowa?</b>
+<div class="faq-answer">Mechanizm losowego wyboru części przedstawicieli.</div>
+</div>
 
-<p>
+<div class="faq-item">
+<b>Czy to legalne?</b>
+<div class="faq-answer">Projekt wymaga zmian ustawowych.</div>
+</div>
 
-Uważamy, że panujący w Naszym kraju system partiokracji jest sprzeczny z konstytucyjnym zapisem, iż:
-Władza zwierzchnia w Rzeczypospolitej Polskiej należy do Narodu.
-Coraz więcej osób czuje brak wpływu na decyzje publiczne.
-Chcemy rozpocząć szeroko zakrojoną akcją społeczną i skończyć z podziałami partyjnymi.
-Wierzymy, że różnorodność doświadczeń obywateli jest Naszą wartością.
-Społeczeństwo powinno mieć większy udział w procesie stanowienia prawa.
-Zmiany wymagają zmotywowania wielu świadomych obywateli.
-Szanujemy odmienne poglądy.
-
-</p>
-
-</section>
-
-<section id="czego">
-
-<h2>Czego chcemy?</h2>
-
-<p>
-
-Naszym celem jest przedstawienie nowego projektu ordynacji oraz doprowadzenia do jej ustanowienia przez Nas.
-
-</p>
-
-<ul>
-
-<li>większego udziału obywateli,</li>
-
-<li>większej przejrzystości życia publicznego,</li>
-
-<li>odpowiedzialności osób pełniących funkcje publiczne,</li>
-
-<li>silniejszego dialogu społecznego,</li>
-
-<li>edukacji obywatelskiej.</li>
-
-</ul>
-
-<p>
-Jeśli więc chcesz:
-Chcesz sam decydować, kto będzie Cię reprezentował w Sejmie?
-Chcesz głosować na człowieka, a nie na numer na partyjnej liście?
-Chcesz mieć możliwość kandydowania bez zgody partyjnych władz?
-Chcesz, aby poseł odpowiadał przed swoimi wyborcami, a nie przed szefem partii?
-Chcesz wiedzieć dokładnie, kto odpowiada za sprawy Twojego regionu?
-Chcesz mieć większy wpływ na skład Sejmu niż tylko wybór jednej z kilku partii?
-Chcesz, aby do parlamentu mogli wejść lokalni społecznicy, przedsiębiorcy i eksperci, a nie tylko działacze partyjni?
-Chcesz, aby wyborcy mogli nagradzać dobrych posłów i usuwać nieskutecznych?
-Chcesz, aby każdy głos miał większe znaczenie?
-Chcesz odpartyjnienia spółek Skarbu Państwa i urzędów publicznych?
-Chcesz większej konkurencji w polityce i więcej nowych twarzy?
-Chcesz, aby kandydat musiał zdobyć zaufanie mieszkańców, a nie numerek prezesa na liście wyborczej?
-Chcesz mieć realny wybór?
-Chcesz, aby obywatele odzyskali kontrolę nad tym, kto trafia do parlamentu?
-Twój poseł czy ich kandydat?
-Więcej wyboru, mniej układów – tak czy nie?
-Jeśli odpowiedziałeś na któreś pytanie TAK, to dołącz do tej grupy, udostępnij, skomentuj, polajkuj.
-Chcesz wziąć los w swoje ręce zapraszamy: 
-Projekt ma być rozwijany wspólnie z obywatelami.
-Każdy głos ma znaczenie.
-Każda propozycja może zostać przeanalizowana.
-Liczymy na merytoryczną współpracę.
-
-</p>
+<div class="faq-item">
+<b>Jak mogę dołączyć?</b>
+<div class="faq-answer">Przez formularz kontaktowy lub grupy społecznościowe.</div>
+</div>
 
 </section>
 
-<section id="jak">
-
-<h2>Jak chcemy to osiągnąć?</h2>
-
-<p>
-
-Chętni na bycie zadaniowym posłem poszukiwani ! 
-Wszystkie oddolne ruchy zapraszamy - Połączmy siły.
-Nie wątpimy, że znajdzie się 3 mln chętnych Polakó na wypełnienie zadania posła ?
-Posyłamy większość konstytucyjną tj. 307 posłów z wyboru losu 
-celem wprowadzenia konkretnych zmian w ordynacji wyborczej, 
-także zadanie nie jest na całą kadencję, 
-wystarczy właściwie tylko jedno posiedzenie, 
-a po wykonaniu zadania - samorozwiązanie Sejmu, 
-po którym odbyłyby się przyspieszone, ale w końcu
-PIERWSZE PRAWDZIWIE WOLNE WYBORY w Polsce,
-już według zasad przegłosowanych przez naszych zadaniowych posłańców.
-Do ruchu dołączają uczciwi ludzie, którzy chcą w końcu 
-móc głosować na znanych im dobrych lokalnych gospodarzy, 
-a nie partyjnych miernych, ale wiernych towarzyszy 
-wyznaczonych przez jedynie słusznego prezesa.
-Wszyscy uczestnicy losowania zobowiązują się na oddanie głosu 
-na listę naszego ogólnopolskiego KWW i zbierają, w zasadzie tylko, 
-wśród domowników podpisy poparcia, bowiem potrzeba nas co najmniej 3 mln. 
-Każdy z nich przekonuje też ich do poparcia inicjatywy w głosowaniu, 
-plus jednego sąsiada stąd 3x5 i mamy 15 mln potrzebnych do objęcia 307 mandatów.
-Chętni do kandydowania trafiają w swoich okręgach do puli losowania, 
-które odbywa się na żywo z transmisją w internetach. 
-Obstawiamy wszystkie listy do pełna w drodze LOSOWANIA 
-i bez żadnych kampanii zgarniamy większość konstytucyjną.
-
-Chciałbyś być zadaniowym posłem na góra 3 miesiące ?
-    
-Tu podpowiedź dla pracusiów:
-Zwolnienie Posła na Sejm z dotychczasowej pracy zawodowej:
-Urlop bezpłatny: Dawny szef posła musi dać mu wolne na czas pracy w Sejmie.
-Ochrona pracownika: Pracodawca nie może zwolnić posła z jego starej pracy bez zgody Sejmu.
-Gwarancja powrotu: Po wygaśnięciu mandatu poseł ma prawo wrócić na swoje dawne stanowisko.
-Mówi o tym art. 31 Ustawy o wykonywaniu mandatu.
-
-</p>
-
-</section>
-
-<section id="osiagniemy">
-
-<h2>Co osiągniemy?</h2>
-
-<p>
-
-PIERWSZE PRAWDZIWIE WOLNE WYBORY w POLSCE,
-Będziemy mogli w końcu wybierać swoich przedstawicieli.
-Przywrócimy władzę Narodowi i zakończymy z partyjnymi układami.
-Nie będziemy musieli już glosować na kandydatów wyznaczonych przez jedynie słusznych prezesów partii.
-
-</p>
-
-</section>
-
-<section id="kontakt">
-
+<!-- CONTACT -->
+<section id="kontakt" class="reveal">
 <h2>Kontakt</h2>
 
-<div class="contact">
-
-📧 <b>E-mail:</b><br>
-
-<a href="mailto:polskaloteriasejmowa@gmail.com">
-
-polskaloteriasejmowa@gmail.com
-
-</a>
-
-<br><br>
-
-<a class="button" href="https://www.facebook.com/groups/1325996715575240/" target="_blank">
-
-Grupa Facebook
-
-</a>
-
-<a class="button" href="https://chat.whatsapp.com/IgShFfj5RVc4kO33CfM1So" target="_blank">
-
-Grupa WhatsApp
-
-</a>
-
-</div>
+<p>
+📧 polskaloteriasejmowa@gmail.com
+</p>
 
 </section>
 
 </main>
 
 <footer>
-
 © 2027 Polska Loteria Sejmowa
-
 </footer>
+
+<script>
+
+/* SCROLL REVEAL */
+const sections=document.querySelectorAll('.reveal');
+
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+e.target.classList.add('show');
+}
+});
+},{threshold:0.1});
+
+sections.forEach(s=>obs.observe(s));
+
+/* COUNTERS */
+function count(id,to){
+let el=document.getElementById(id);
+let i=0;
+let interval=setInterval(()=>{
+i+=Math.ceil(to/50);
+if(i>=to){i=to;clearInterval(interval)}
+el.innerText=i;
+},30);
+}
+
+count("c1",125000);
+count("c2",3200000);
+count("c3",460);
+
+/* SIMPLE CHART */
+const ctx=document.getElementById("chart").getContext("2d");
+ctx.fillStyle="#c00000";
+
+let data=[20,40,70,120,200,300];
+
+data.forEach((v,i)=>{
+ctx.fillRect(i*50,120-v/2,30,v/2);
+});
+
+/* FAQ TOGGLE */
+document.querySelectorAll('.faq-item').forEach(item=>{
+item.addEventListener('click',()=>{
+let ans=item.querySelector('.faq-answer');
+ans.style.display=ans.style.display==="block"?"none":"block";
+});
+});
+
+</script>
 
 </body>
 </html>
