@@ -180,20 +180,20 @@ header::after{
 }
 
 header h1{
-
-font-size:48px;
-margin:0;
-color:white;
-
+    font-size: clamp(28px, 4vw, 48px);
+    margin:0;
+    color:#c00000;
+    line-height:1.1;
+    white-space:nowrap;
+    text-align:center;
 }
 
 header h2{
-
-font-size:22px;
-font-weight:normal;
-margin-top:15px;
-color:white;
-
+    font-size: clamp(14px, 2.2vw, 22px);
+    font-weight:normal;
+    margin-top:10px;
+    color:white;
+    max-width:90%;
 }
 
 
@@ -307,8 +307,17 @@ font-size:18px;
         height:80px;
         left:10px;
     }
-}
 
+    header h1{
+        white-space:normal;
+        font-size:28px;
+    }
+
+    header h2{
+        font-size:14px;
+    }
+}
+    
 </style>
 
 </head>
