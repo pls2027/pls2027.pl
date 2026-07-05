@@ -44,14 +44,20 @@ line-height:1.7;
     z-index:0;
 }    
 
- .banner-text{
+.banner-text{
     position:absolute;
     z-index:2;
     width:100%;
     text-align:center;
-    top:42%;   /* <<< DESKTOP POZYCJA */
-    transform:translateY(-50%);
-    padding:0 20px;
+    top:0;
+    left:0;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding-top:20px;
+    gap:10px;
 }
 
     .banner-text h1{
@@ -107,8 +113,9 @@ nav{
     height:120px;
     border-radius:50%;
     background:#fff;
-    padding:2px;
+    padding:0px;
     box-shadow:0 5px 18px rgba(0,0,0,.35);
+    z-index:10;
 }
     
 .button i {
@@ -171,6 +178,7 @@ header{
     justify-content:center;
     align-items:center;
     text-align:center;
+    z-index:1;
 }
 
 header::after{
@@ -328,9 +336,11 @@ font-size:18px;
         transform:translateY(-50%);
     }
 
-    header h1{
-        font-size:20px;   /* <<<<<< TO FIXUJE 3 LINIE */
+     header h1{
+        font-size: clamp(16px, 5.5vw, 22px);
+        line-height:1.05;
         white-space:normal;
+        max-width:95%;
     }
 
     header h2{
