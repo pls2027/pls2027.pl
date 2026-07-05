@@ -44,10 +44,14 @@ line-height:1.7;
     z-index:0;
 }    
 
-    .banner-text{
-    position:relative;
+ .banner-text{
+    position:absolute;
     z-index:2;
+    width:100%;
     text-align:center;
+    top:42%;   /* <<< DESKTOP POZYCJA */
+    transform:translateY(-50%);
+    padding:0 20px;
 }
 
     .banner-text h1{
@@ -163,6 +167,7 @@ header{
     height:260px;
     overflow:hidden;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
@@ -180,18 +185,17 @@ header::after{
 }
 
 header h1{
-    font-size: clamp(28px, 4vw, 48px);
+    font-size: clamp(22px, 4vw, 46px);
     margin:0;
     color:#c00000;
-    line-height:1.1;
+    line-height:1.05;
     white-space:nowrap;
-    text-align:center;
 }
 
 header h2{
-    font-size: clamp(14px, 2.2vw, 22px);
+    font-size: clamp(13px, 2vw, 20px);
     font-weight:normal;
-    margin-top:10px;
+    margin-top:6px;
     color:white;
     max-width:90%;
 }
@@ -279,7 +283,18 @@ text-align:center;
 font-size:18px;
 
 }
+    
+@media (min-width:769px){
 
+    .banner-text{
+        top:38%; /* H1 WYŻEJ (jak chciałeś) */
+    }
+
+    header h2{
+        margin-top:14px; /* H2 trochę niżej */
+    }
+}
+    
 @media (max-width: 768px){
 
     .menu-toggle{
@@ -308,13 +323,18 @@ font-size:18px;
         left:10px;
     }
 
+  .banner-text{
+        top:50%;
+        transform:translateY(-50%);
+    }
+
     header h1{
+        font-size:20px;   /* <<<<<< TO FIXUJE 3 LINIE */
         white-space:normal;
-        font-size:28px;
     }
 
     header h2{
-        font-size:14px;
+        font-size:13px;
     }
 }
     
