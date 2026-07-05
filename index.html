@@ -48,16 +48,16 @@ line-height:1.7;
     position:absolute;
     z-index:2;
     width:100%;
-    text-align:center;
-    top:0;
-    left:0;
     height:100%;
+
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding-top:20px;
-    gap:10px;
+
+    gap:6px;
+    padding:0 15px;
+    text-align:center;
 }
 
     .banner-text h1{
@@ -82,8 +82,6 @@ line-height:1.7;
     color:white;
     position:absolute;
     right:20px;
-    top:50%;
-    transform:translateY(-50%);
     cursor:pointer;
 }
 
@@ -107,8 +105,6 @@ nav{
 .nav-logo{
     position:absolute;
     left:25px;
-    top:50%;
-    transform:translateY(-50%);
     width:120px;
     height:120px;
     border-radius:50%;
@@ -193,19 +189,17 @@ header::after{
 }
 
 header h1{
-    font-size: clamp(22px, 4vw, 46px);
+    font-size: clamp(20px, 4vw, 46px);
+    line-height:1.05;
     margin:0;
     color:#c00000;
-    line-height:1.05;
-    white-space:nowrap;
 }
 
-header h2{
-    font-size: clamp(13px, 2vw, 20px);
-    font-weight:normal;
-    margin-top:6px;
-    color:white;
-    max-width:90%;
+header h1{
+    font-size: clamp(20px, 4vw, 46px);
+    line-height:1.05;
+    margin:0;
+    color:#c00000;
 }
 
 
@@ -294,10 +288,6 @@ font-size:18px;
     
 @media (min-width:769px){
 
-    .banner-text{
-        top:38%; /* H1 WYŻEJ (jak chciałeś) */
-    }
-
     header h2{
         margin-top:14px; /* H2 trochę niżej */
     }
@@ -331,20 +321,17 @@ font-size:18px;
         left:10px;
     }
 
-  .banner-text{
-        top:50%;
-        transform:translateY(-50%);
+   .banner-text{
+        gap:4px;
+        padding-top:10px;
     }
 
-     header h1{
-        font-size: clamp(16px, 5.5vw, 22px);
-        line-height:1.05;
-        white-space:normal;
-        max-width:95%;
+   header h1{
+        font-size:18px;
     }
 
     header h2{
-        font-size:13px;
+        font-size:12px;
     }
 }
     
